@@ -1,9 +1,5 @@
 {
-  "name": "Astro Rocket",
-  "bio": "Astro Rocket is a free, open-source Astro 6 starter theme. Built for speed, accessibility, and developer experience — clone it and start shipping.",
-  "social": {
-    "github": "https://github.com",
-    "linkedin": "https://linkedin.com",
-    "twitter": "https://x.com"
-  }
+  "name": "Hutama Bore Pile",
+  "bio": "Hutama Bore Pile adalah perusahaan jasa bore pile profesional yang melayani pengerjaan pondasi untuk berbagai jenis proyek konstruksi di seluruh Pulau Jawa.",
+  "social": {}
 }

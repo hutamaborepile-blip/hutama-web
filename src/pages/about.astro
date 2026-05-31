@@ -1,6 +1,6 @@
 ---
 /**
- * About page
+ * Tentang Kami page
  * URL: /about
  */
 import PageLayout from '@/layouts/PageLayout.astro';
@@ -9,53 +9,47 @@ import Badge from '@/components/ui/data-display/Badge/Badge.astro';
 import Card from '@/components/ui/data-display/Card/Card.astro';
 import Button from '@/components/ui/form/Button/Button.astro';
 import { Hero } from '@/components/hero';
-import TypingEffect from '@/components/ui/TypingEffect.astro';
-import TechStack from '@/components/landing/TechStack.astro';
 import LetterGlitchBand from '@/components/patterns/LetterGlitchBand.astro';
-import BlogImageSVG from '@/components/blog/BlogImageSVG.astro';
+
+const waNumber = '6281328048030';
+const waLink = `https://wa.me/${waNumber}`;
 ---
 <PageLayout
-  title="About Astro Rocket — Web Designer & Developer | Amsterdam"
-  description="Designer & developer — Crafting modern web experiences shaped by clean design, solid structure, and attention to detail."
+  title="Tentang Hutama Bore Pile — Jasa Bore Pile Profesional di Pulau Jawa"
+  description="Hutama Bore Pile adalah perusahaan jasa bore pile profesional yang melayani pondasi bangunan untuk berbagai proyek konstruksi di seluruh Pulau Jawa."
 >
   <Hero layout="centered" size="sm" class="isolate" showHeroHalo>
     <Badge slot="badge" variant="brand" pill>
-      <Icon name="user" size="sm" />
-      About me
+      <Icon name="building" size="sm" />
+      Tentang Kami
     </Badge>
     <h1 slot="title">
-      <span class="text-foreground [-webkit-text-fill-color:currentColor]">Astro Rocket —</span><br />
-      <span class="text-brand-500 [-webkit-text-fill-color:var(--color-brand-500)]">
-        <TypingEffect words={["Web Designer", "Web Developer", "Astro Developer", "Claude Code User", "UI / UX Enthusiast", "Blogger", "Coffee lover"]} />
-      </span>
+      <span class="text-foreground [-webkit-text-fill-color:currentColor]">Tentang</span><br />
+      <span class="text-brand-500 [-webkit-text-fill-color:var(--color-brand-500)]">Hutama Bore Pile</span>
     </h1>
-
     <p slot="description">
-      I care about both sides of the craft — how a site looks and how it
-      performs. Here's a bit more about how I think and work.
+      Jasa Bore Pile Profesional untuk Berbagai Kebutuhan Pondasi di Pulau Jawa.
     </p>
   </Hero>
 
-  <!-- About me -->
+  <!-- Profil Perusahaan -->
   <section class="py-[var(--space-section-md)] bg-background-secondary border-t border-border">
     <div class="mx-auto max-w-6xl px-6">
       <div class="grid gap-10 glitch:grid-cols-2 glitch:gap-12">
-        <!-- Left: text -->
         <div class="flex flex-col justify-center gap-4 sm:items-center sm:text-center glitch:items-start glitch:text-left" data-reveal="right" data-reveal-ease="smooth">
           <div class="flex flex-col gap-6 sm:items-center glitch:items-start">
-            <Badge variant="brand" pill class="self-start sm:self-center glitch:self-start">Building since 2010</Badge>
+            <Badge variant="brand" pill class="self-start sm:self-center glitch:self-start">Profil Perusahaan</Badge>
             <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground text-balance">
-              Sixteen years of hands‑on craft
+              Kontraktor Bore Pile Terpercaya di Pulau Jawa
             </h2>
           </div>
           <p class="text-lg text-foreground-muted leading-relaxed text-pretty sm:max-w-xl sm:mx-auto glitch:max-w-none glitch:mx-0">
-            I'm a web designer and developer with 16 years of hands‑on experience, based in Amsterdam and working worldwide. Design and the code beneath it aren't separate jobs to me — they're one craft, kept with the same person from first sketch to final deploy.
+            Hutama Bore Pile merupakan perusahaan jasa bore pile yang melayani pengerjaan pondasi untuk berbagai jenis proyek konstruksi di seluruh kota dan kabupaten di Pulau Jawa. Kami hadir untuk membantu kebutuhan pondasi bangunan dengan sistem kerja profesional, tenaga berpengalaman, dan pengerjaan yang mengutamakan kualitas serta ketepatan waktu.
           </p>
           <p class="text-lg text-foreground-muted leading-relaxed text-pretty sm:max-w-xl sm:mx-auto glitch:max-w-none glitch:mx-0">
-            The result is fast, maintainable sites built with intention — and a direct line to the person actually doing the work, from the first conversation to launch.
+            Didirikan dan dikelola langsung oleh Pak Hambali, Hutama Bore Pile berkomitmen memberikan layanan terbaik dalam bidang pondasi bore pile untuk rumah, ruko, gudang, gedung, pabrik, sekolah, tempat ibadah, hingga proyek konstruksi skala besar lainnya.
           </p>
         </div>
-        <!-- Right: personal facts card -->
         <div class="flex flex-col h-full" data-reveal="left" data-reveal-delay="1" data-reveal-ease="smooth">
           <Card variant="elevated" padding="lg" class="flex-1 flex flex-col justify-center">
             <div class="grid grid-cols-2 sm:grid-cols-3 glitch:grid-cols-2 gap-x-6 gap-y-8">
@@ -64,10 +58,17 @@ import BlogImageSVG from '@/components/blog/BlogImageSVG.astro';
                   <Icon name="map-pin" size="md" />
                 </div>
                 <div>
-                  <h3 class="text-base font-semibold text-foreground">Based in Amsterdam</h3>
-                  <p class="text-sm text-foreground-muted leading-relaxed mt-1.5">
-                    Working worldwide, in Dutch & English.
-                  </p>
+                  <h3 class="text-base font-semibold text-foreground">Berbasis di Surabaya</h3>
+                  <p class="text-sm text-foreground-muted leading-relaxed mt-1.5">Melayani seluruh Pulau Jawa.</p>
+                </div>
+              </div>
+              <div class="flex flex-col items-center text-center gap-3">
+                <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
+                  <Icon name="user" size="md" />
+                </div>
+                <div>
+                  <h3 class="text-base font-semibold text-foreground">Dipimpin Pak Hambali</h3>
+                  <p class="text-sm text-foreground-muted leading-relaxed mt-1.5">Founder & pengelola langsung.</p>
                 </div>
               </div>
               <div class="flex flex-col items-center text-center gap-3">
@@ -75,54 +76,35 @@ import BlogImageSVG from '@/components/blog/BlogImageSVG.astro';
                   <Icon name="award" size="md" />
                 </div>
                 <div>
-                  <h3 class="text-base font-semibold text-foreground">16 years in the craft</h3>
-                  <p class="text-sm text-foreground-muted leading-relaxed mt-1.5">
-                    Designing and building since 2010.
-                  </p>
+                  <h3 class="text-base font-semibold text-foreground">Tenaga Berpengalaman</h3>
+                  <p class="text-sm text-foreground-muted leading-relaxed mt-1.5">Tim ahli di bidang pondasi.</p>
                 </div>
               </div>
               <div class="flex flex-col items-center text-center gap-3">
                 <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
-                  <Icon name="code-2" size="md" />
+                  <Icon name="layers" size="md" />
                 </div>
                 <div>
-                  <h3 class="text-base font-semibold text-foreground">Astro enthusiast</h3>
-                  <p class="text-sm text-foreground-muted leading-relaxed mt-1.5">
-                    My framework of choice.
-                  </p>
+                  <h3 class="text-base font-semibold text-foreground">Berbagai Jenis Proyek</h3>
+                  <p class="text-sm text-foreground-muted leading-relaxed mt-1.5">Rumah hingga gedung bertingkat.</p>
                 </div>
               </div>
               <div class="flex flex-col items-center text-center gap-3">
                 <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
-                  <Icon name="sparkles" size="md" />
+                  <Icon name="tag" size="md" />
                 </div>
                 <div>
-                  <h3 class="text-base font-semibold text-foreground">AI enthusiast</h3>
-                  <p class="text-sm text-foreground-muted leading-relaxed mt-1.5">
-                    Claude is my daily thinking partner.
-                  </p>
+                  <h3 class="text-base font-semibold text-foreground">Harga Kompetitif</h3>
+                  <p class="text-sm text-foreground-muted leading-relaxed mt-1.5">Transparan dan sesuai kebutuhan.</p>
                 </div>
               </div>
               <div class="flex flex-col items-center text-center gap-3">
                 <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
-                  <Icon name="layout" size="md" />
+                  <Icon name="check-circle" size="md" />
                 </div>
                 <div>
-                  <h3 class="text-base font-semibold text-foreground">UI/UX enthusiast</h3>
-                  <p class="text-sm text-foreground-muted leading-relaxed mt-1.5">
-                    Clean, usable design.
-                  </p>
-                </div>
-              </div>
-              <div class="flex flex-col items-center text-center gap-3">
-                <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
-                  <Icon name="coffee" size="md" />
-                </div>
-                <div>
-                  <h3 class="text-base font-semibold text-foreground">Coffee lover</h3>
-                  <p class="text-sm text-foreground-muted leading-relaxed mt-1.5">
-                    Fuelled by the best coffee.
-                  </p>
+                  <h3 class="text-base font-semibold text-foreground">Tepat Waktu</h3>
+                  <p class="text-sm text-foreground-muted leading-relaxed mt-1.5">Pengerjaan sesuai jadwal.</p>
                 </div>
               </div>
             </div>
@@ -131,30 +113,27 @@ import BlogImageSVG from '@/components/blog/BlogImageSVG.astro';
       </div>
     </div>
   </section>
-  <!-- Values -->
+
+  <!-- Fokus Layanan -->
   <section class="py-[var(--space-section-md)] bg-background border-t border-border">
     <div class="mx-auto max-w-6xl px-6">
       <div class="mb-8 text-center flex flex-col items-center gap-4" data-reveal>
-        <div class="flex flex-col items-center gap-6">
-          <Badge variant="brand" pill>My Process</Badge>
-          <h2 class="font-display text-4xl font-bold text-foreground">
-            How I Work
-          </h2>
-        </div>
+        <Badge variant="brand" pill>Fokus Layanan</Badge>
+        <h2 class="font-display text-4xl font-bold text-foreground">Fokus Pada Kualitas Pondasi Bangunan</h2>
         <p class="text-lg text-foreground-muted max-w-2xl mx-auto text-balance">
-          These aren't aspirations — they're the constraints every project is held to, from the first conversation to the final handover.
+          Pondasi merupakan bagian terpenting dalam sebuah konstruksi. Kami memahami bahwa proses pengerjaan bore pile membutuhkan pengalaman lapangan, perhitungan teknis, dan ketelitian dalam pelaksanaan.
         </p>
       </div>
       <div class="grid gap-6 sm:gap-8 sm:grid-cols-3">
         <Card hover data-reveal>
           <div class="flex items-start gap-4 sm:flex-col sm:items-center sm:gap-3 sm:text-center lg:flex-row lg:items-start lg:gap-4 lg:text-left">
             <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
-              <Icon name="zap" size="md" />
+              <Icon name="drill" size="md" />
             </div>
             <div class="flex-1 min-w-0">
-              <h3 class="text-base font-semibold text-foreground">Performance First</h3>
+              <h3 class="text-base font-semibold text-foreground">Bore Pile & Mini Bore Pile</h3>
               <p class="text-sm text-foreground-muted leading-relaxed mt-1.5">
-                Fast sites rank better, convert better, and keep users happy. I optimise for speed from the ground up.
+                Pengerjaan bore pile dan mini bore pile untuk berbagai kebutuhan pondasi bangunan.
               </p>
             </div>
           </div>
@@ -162,12 +141,12 @@ import BlogImageSVG from '@/components/blog/BlogImageSVG.astro';
         <Card hover data-reveal data-reveal-delay="1">
           <div class="flex items-start gap-4 sm:flex-col sm:items-center sm:gap-3 sm:text-center lg:flex-row lg:items-start lg:gap-4 lg:text-left">
             <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
-              <Icon name="award" size="md" />
+              <Icon name="home" size="md" />
             </div>
             <div class="flex-1 min-w-0">
-              <h3 class="text-base font-semibold text-foreground">Experience That Shows</h3>
+              <h3 class="text-base font-semibold text-foreground">Pondasi Rumah & Gedung</h3>
               <p class="text-sm text-foreground-muted leading-relaxed mt-1.5">
-                Sixteen years of experience means I know what works, what doesn't, and exactly what your project needs.
+                Melayani pondasi rumah tinggal, ruko, gudang, gedung, pabrik, dan proyek lainnya.
               </p>
             </div>
           </div>
@@ -175,12 +154,12 @@ import BlogImageSVG from '@/components/blog/BlogImageSVG.astro';
         <Card hover data-reveal data-reveal-delay="2">
           <div class="flex items-start gap-4 sm:flex-col sm:items-center sm:gap-3 sm:text-center lg:flex-row lg:items-start lg:gap-4 lg:text-left">
             <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
-              <Icon name="rocket" size="md" />
+              <Icon name="map-pin" size="md" />
             </div>
             <div class="flex-1 min-w-0">
-              <h3 class="text-base font-semibold text-foreground">Modern from the Ground Up</h3>
+              <h3 class="text-base font-semibold text-foreground">Survey & Konsultasi</h3>
               <p class="text-sm text-foreground-muted leading-relaxed mt-1.5">
-                Built with today's tooling. Fast, maintainable, and ready for whatever comes next.
+                Tim kami siap survey lokasi dan konsultasi kebutuhan pondasi sebelum pengerjaan dimulai.
               </p>
             </div>
           </div>
@@ -188,224 +167,122 @@ import BlogImageSVG from '@/components/blog/BlogImageSVG.astro';
       </div>
     </div>
   </section>
-  <!-- My Stack -->
-  <TechStack
-    badge="Tools & Tech"
-    title="My Stack"
-    description="The tools I rely on every day to build fast, modern websites — chosen for performance, great developer experience, and reliability."
-    background="secondary"
-  />
-  <!-- FAQ -->
-  <section class="py-[var(--space-section-md)] bg-background border-t border-border">
+
+  <!-- Keunggulan -->
+  <section class="py-[var(--space-section-md)] bg-background-secondary border-t border-border">
     <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
       <div class="flex flex-col items-center gap-4 text-center" data-reveal>
-        <div class="flex flex-col items-center gap-6">
-          <Badge variant="brand" pill>Good to know</Badge>
-          <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground">
-            Frequently asked questions
-          </h2>
-        </div>
-        <p class="text-lg text-foreground-muted max-w-2xl mx-auto text-balance">
-          Some of the questions I get asked most often.
-        </p>
+        <Badge variant="brand" pill>Keunggulan</Badge>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground">
+          Kenapa Memilih Hutama Bore Pile?
+        </h2>
       </div>
-
       <div class="grid gap-6 md:grid-cols-2">
-        <!-- Card 1: About Astro -->
-        <Card variant="elevated" padding="lg" data-reveal data-reveal-delay="1">
-          <div class="flex items-center gap-3 pb-4 border-b border-border">
-            <div class="w-11 h-11 rounded-lg bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
-              <Icon name="rocket" size="md" />
-            </div>
-            <h3 class="font-display text-base font-semibold text-foreground">About Astro</h3>
-          </div>
-          <div class="w-full">
-            <details class="border-b border-border" name="faq-astro">
-              <summary class="flex w-full items-center justify-between text-sm py-4 text-left font-medium text-foreground transition-colors hover:text-foreground-secondary cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-                What is Astro?
-                <Icon name="chevron-down" size="sm" class="faq-icon shrink-0 text-foreground-muted transition-transform duration-200" />
-              </summary>
-              <div class="pb-4 text-sm text-foreground-muted leading-relaxed">
-                Astro is a modern web framework built for content-driven sites. It ships zero JavaScript by default — only sending what the page actually needs. The result is fast load times, excellent Core Web Vitals scores, and lean, maintainable code.
-              </div>
-            </details>
-            <details class="border-b border-border" name="faq-astro">
-              <summary class="flex w-full items-center justify-between text-sm py-4 text-left font-medium text-foreground transition-colors hover:text-foreground-secondary cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-                Why do you build with Astro?
-                <Icon name="chevron-down" size="sm" class="faq-icon shrink-0 text-foreground-muted transition-transform duration-200" />
-              </summary>
-              <div class="pb-4 text-sm text-foreground-muted leading-relaxed">
-                Because it matches the way I think about the web: lean, purposeful, and built to last. Astro lets me ship fast sites without fighting the framework — minimal JavaScript, clean HTML, great SEO — so I can focus on the design and details that actually matter.
-              </div>
-            </details>
-            <details class="border-b border-border" name="faq-astro">
-              <summary class="flex w-full items-center justify-between text-sm py-4 text-left font-medium text-foreground transition-colors hover:text-foreground-secondary cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-                Do you always build with Astro?
-                <Icon name="chevron-down" size="sm" class="faq-icon shrink-0 text-foreground-muted transition-transform duration-200" />
-              </summary>
-              <div class="pb-4 text-sm text-foreground-muted leading-relaxed">
-                Almost always. For portfolios, business sites, marketing pages, and blogs, Astro is the right tool. If a project genuinely calls for something different, I'll be upfront about it. But Astro handles most of what clients need, and it does it exceptionally well.
-              </div>
-            </details>
-            <details class="border-b border-border" name="faq-astro">
-              <summary class="flex w-full items-center justify-between text-sm py-4 text-left font-medium text-foreground transition-colors hover:text-foreground-secondary cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-                Do you build Astro themes?
-                <Icon name="chevron-down" size="sm" class="faq-icon shrink-0 text-foreground-muted transition-transform duration-200" />
-              </summary>
-              <div class="pb-4 text-sm text-foreground-muted leading-relaxed">
-                Yes. I built <a href="https://astro.build/themes/details/astro-rocket/" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 decoration-brand-500 hover:text-brand-400 transition-colors">Astro Rocket</a> — a free, production-ready theme listed on the official Astro themes directory. It includes a full component library, blog support, dark mode, SEO, and everything you need to launch a fast modern website without starting from scratch.
-              </div>
-            </details>
-            <details class="border-b border-border last:border-0" name="faq-astro">
-              <summary class="flex w-full items-center justify-between text-sm py-4 text-left font-medium text-foreground transition-colors hover:text-foreground-secondary cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-                Do you plan to build more Astro themes?
-                <Icon name="chevron-down" size="sm" class="faq-icon shrink-0 text-foreground-muted transition-transform duration-200" />
-              </summary>
-              <div class="pb-4 text-sm text-foreground-muted leading-relaxed">
-                Yes, that's the plan. Astro Rocket is actively maintained and I have ideas for new themes in the pipeline. Follow along on the blog or keep an eye on the official Astro themes directory for what's next.
-              </div>
-            </details>
-          </div>
+        <Card variant="elevated" padding="lg" data-reveal>
+          <ul class="flex flex-col gap-4">
+            {[
+              { icon: 'users', title: 'Tenaga Berpengalaman', desc: 'Pengerjaan dilakukan oleh tim yang telah berpengalaman dalam berbagai proyek pondasi bore pile.' },
+              { icon: 'tag', title: 'Harga Kompetitif', desc: 'Kami memberikan penawaran harga yang transparan dan menyesuaikan kebutuhan proyek.' },
+              { icon: 'map-pin', title: 'Survey & Konsultasi', desc: 'Kami siap membantu survey lokasi dan konsultasi kebutuhan pondasi sebelum pengerjaan dimulai.' },
+              { icon: 'clock', title: 'Pengerjaan Tepat Waktu', desc: 'Setiap proyek dikerjakan dengan perencanaan yang matang agar proses berjalan efisien.' },
+            ].map((item) => (
+              <li class="flex items-start gap-3">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0 mt-0.5">
+                  <Icon name={item.icon} size="sm" />
+                </div>
+                <div>
+                  <p class="text-sm font-semibold text-foreground">{item.title}</p>
+                  <p class="text-sm text-foreground-muted leading-relaxed mt-0.5">{item.desc}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
         </Card>
-
-        <!-- Card 2: About the work -->
-        <Card variant="elevated" padding="lg" data-reveal data-reveal-delay="2">
-          <div class="flex items-center gap-3 pb-4 border-b border-border">
-            <div class="w-11 h-11 rounded-lg bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
-              <Icon name="user" size="md" />
-            </div>
-            <h3 class="font-display text-base font-semibold text-foreground">About the work</h3>
-          </div>
-          <div class="w-full">
-            <details class="border-b border-border" name="faq-work">
-              <summary class="flex w-full items-center justify-between text-sm py-4 text-left font-medium text-foreground transition-colors hover:text-foreground-secondary cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-                Do you use AI when you build a website?
-                <Icon name="chevron-down" size="sm" class="faq-icon shrink-0 text-foreground-muted transition-transform duration-200" />
-              </summary>
-              <div class="pb-4 text-sm text-foreground-muted leading-relaxed">
-                Yes — I work alongside Claude as a thinking partner throughout every project. Not as a shortcut, but as a second perspective that helps me think through design decisions, review code, and spot things I might otherwise miss.
-              </div>
-            </details>
-            <details class="border-b border-border" name="faq-work">
-              <summary class="flex w-full items-center justify-between text-sm py-4 text-left font-medium text-foreground transition-colors hover:text-foreground-secondary cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-                Are you a company or agency?
-                <Icon name="chevron-down" size="sm" class="faq-icon shrink-0 text-foreground-muted transition-transform duration-200" />
-              </summary>
-              <div class="pb-4 text-sm text-foreground-muted leading-relaxed">
-                No. I'm a designer and developer who works solo, driven by genuine enthusiasm for the craft — not by commercial targets. There's no sales team, no account manager, no handoff to a junior. You work directly with me from the first conversation to the final delivery.
-              </div>
-            </details>
-            <details class="border-b border-border" name="faq-work">
-              <summary class="flex w-full items-center justify-between text-sm py-4 text-left font-medium text-foreground transition-colors hover:text-foreground-secondary cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-                How do you choose which projects to take on?
-                <Icon name="chevron-down" size="sm" class="faq-icon shrink-0 text-foreground-muted transition-transform duration-200" />
-              </summary>
-              <div class="pb-4 text-sm text-foreground-muted leading-relaxed">
-                I look for projects where good design and solid execution actually matter to the client. I work best when there's a clear goal, an open line of communication, and a client who trusts the process. I'd rather take on fewer projects and do them properly than stretch across too many at once.
-              </div>
-            </details>
-            <details class="border-b border-border" name="faq-work">
-              <summary class="flex w-full items-center justify-between text-sm py-4 text-left font-medium text-foreground transition-colors hover:text-foreground-secondary cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-                Do you offer support or maintenance after launch?
-                <Icon name="chevron-down" size="sm" class="faq-icon shrink-0 text-foreground-muted transition-transform duration-200" />
-              </summary>
-              <div class="pb-4 text-sm text-foreground-muted leading-relaxed">
-                Yes. Whether it's small updates, content changes, or something more involved — I'm available after launch. We can agree on whatever arrangement works best for the project.
-              </div>
-            </details>
-            <details class="border-b border-border last:border-0" name="faq-work">
-              <summary class="flex w-full items-center justify-between text-sm py-4 text-left font-medium text-foreground transition-colors hover:text-foreground-secondary cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-                Do you work with clients outside the Netherlands?
-                <Icon name="chevron-down" size="sm" class="faq-icon shrink-0 text-foreground-muted transition-transform duration-200" />
-              </summary>
-              <div class="pb-4 text-sm text-foreground-muted leading-relaxed">
-                Absolutely. I'm based in Amsterdam but work with clients worldwide. Most projects run entirely remote, which works well for clear briefs and good communication. Time zone differences are rarely a problem.
-              </div>
-            </details>
-          </div>
+        <Card variant="elevated" padding="lg" data-reveal data-reveal-delay="1">
+          <ul class="flex flex-col gap-4">
+            {[
+              { icon: 'layers', title: 'Support Berbagai Jenis Proyek', desc: 'Kami melayani kebutuhan pondasi untuk proyek rumah pribadi hingga proyek konstruksi skala besar.' },
+              { icon: 'globe', title: 'Area Seluruh Pulau Jawa', desc: 'Dengan cakupan area kerja yang luas, kami siap menangani proyek di seluruh Pulau Jawa.' },
+              { icon: 'shield', title: 'Kualitas Terjamin', desc: 'Setiap pengerjaan dilakukan dengan standar kualitas tinggi dan pengawasan ketat.' },
+              { icon: 'message-circle', title: 'Respon Cepat', desc: 'Tim kami siap merespons pertanyaan dan kebutuhan Anda dengan cepat dan profesional.' },
+            ].map((item) => (
+              <li class="flex items-start gap-3">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0 mt-0.5">
+                  <Icon name={item.icon} size="sm" />
+                </div>
+                <div>
+                  <p class="text-sm font-semibold text-foreground">{item.title}</p>
+                  <p class="text-sm text-foreground-muted leading-relaxed mt-0.5">{item.desc}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
         </Card>
       </div>
     </div>
   </section>
 
-  <!-- More about me -->
-  <section class="py-[var(--space-section-md)] bg-background-secondary border-t border-border">
-    <div class="mx-auto max-w-6xl px-6">
-      <div class="grid gap-8 sm:gap-10 glitch:grid-cols-2 glitch:items-center">
-        <!-- Text -->
-        <div class="flex flex-col gap-4 sm:items-center sm:text-center glitch:items-start glitch:justify-center glitch:text-left" data-reveal="right" data-reveal-ease="smooth">
-          <Badge variant="brand" pill class="self-start sm:self-center glitch:self-start">Backstory</Badge>
-          <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground">
-            The longer story
-          </h2>
-          <p class="text-lg text-foreground-muted leading-relaxed text-pretty sm:max-w-xl sm:mx-auto glitch:max-w-none glitch:mx-0">
-            You've seen the work, the process, and the tools. If you'd like to know the person behind them, I've put the whole story in one place.
-          </p>
-          <Button variant="outline" size="lg" href="https://hansmartens.dev/blog/hans-martens-web-designer-veghel" target="_blank" rel="noopener noreferrer" class="self-start sm:self-center glitch:self-start mt-2 sm:hidden glitch:inline-flex">
-            Read the full story
-            <Icon name="arrow-right" size="sm" />
-          </Button>
-        </div>
-
-        <!-- Image -->
-        <div class="mx-auto w-full max-w-sm sm:max-w-md glitch:mx-0 glitch:max-w-none" data-reveal="left" data-reveal-delay="1" data-reveal-ease="smooth">
-          <a
-            href="https://hansmartens.dev/blog/hans-martens-web-designer-veghel"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="group block overflow-hidden rounded-2xl border border-brand-500/20 bg-brand-500/5 shadow-md ring-1 ring-border/60 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:border-brand-500/40"
-            aria-label="Read the introduction post"
-          >
-            <div class="transition-transform duration-300 group-hover:scale-105">
-              <BlogImageSVG slug="hi-im-hans-martens" title="Hi, I'm Hans Martens — the longer story" />
-            </div>
-          </a>
-        </div>
-        <div class="hidden sm:flex justify-center glitch:hidden" data-reveal data-reveal-delay="2">
-          <Button size="lg" variant="outline" href="https://hansmartens.dev/blog/hans-martens-web-designer-veghel" target="_blank" rel="noopener noreferrer">
-            Read the full story
-            <Icon name="arrow-right" size="sm" />
-          </Button>
-        </div>
+  <!-- Area Layanan -->
+  <section class="py-[var(--space-section-md)] bg-background border-t border-border">
+    <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
+      <div class="flex flex-col items-center gap-4 text-center" data-reveal>
+        <Badge variant="brand" pill>Wilayah Kerja</Badge>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground">
+          Melayani Seluruh Wilayah Pulau Jawa
+        </h2>
+      </div>
+      <div class="flex flex-wrap gap-2 justify-center" data-reveal>
+        {[
+          'Surabaya','Sidoarjo','Gresik','Malang','Mojokerto','Pasuruan',
+          'Jakarta','Bekasi','Bogor','Depok','Tangerang','Bandung',
+          'Semarang','Yogyakarta','Solo','Madiun','Kediri','Blitar',
+          'Jember','Banyuwangi','Probolinggo','Lumajang',
+        ].map((kota) => (
+          <Badge variant="brand" pill>{kota}</Badge>
+        ))}
+        <Badge variant="brand" pill>dan seluruh Pulau Jawa</Badge>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="relative z-10 py-[var(--space-section-md)] bg-background border-t border-border">
-    <!-- Mobile: flat section, no card -->
+  <section class="relative z-10 py-[var(--space-section-md)] bg-background-secondary border-t border-border">
     <div class="glitch:hidden mx-auto max-w-2xl px-6 text-center" data-reveal>
-      <Badge variant="brand" pill class="mb-6">Let's talk</Badge>
+      <Badge variant="brand" pill class="mb-6">Hubungi Kami</Badge>
       <h2 class="font-display text-4xl font-bold text-foreground mb-4 text-balance">
-        Sound like a good fit?
+        Konsultasikan Kebutuhan Bore Pile Anda Sekarang
       </h2>
       <p class="text-lg text-foreground-muted mb-8 text-balance">
-        If my background and approach match what you're looking for, I'm open to new projects. Let's have a conversation.
+        Tim Hutama Bore Pile siap membantu survey lokasi, konsultasi, dan penawaran terbaik untuk proyek Anda.
       </p>
-      <Button size="lg" href="/contact" class="cta-btn-brand">
-        Start a Project
-        <Icon name="arrow-right" size="sm" />
-      </Button>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <Button size="lg" href={waLink} target="_blank" rel="noopener noreferrer" class="cta-btn-brand">
+          <Icon name="message-circle" size="sm" />
+          WhatsApp: 0813-2804-803
+        </Button>
+        <Button size="lg" variant="outline" href="/contact">
+          Kirim Pesan
+          <Icon name="arrow-right" size="sm" />
+        </Button>
+      </div>
     </div>
-
-    <!-- Desktop: contained LetterGlitch band with glass card -->
     <LetterGlitchBand>
       <h2 class="font-display text-4xl font-bold text-foreground mb-4 text-balance">
-        Sound like a good fit?
+        Konsultasikan Kebutuhan Bore Pile Anda Sekarang
       </h2>
       <p class="text-lg text-foreground-muted mb-8 text-balance">
-        If my background and approach match what you're looking for, I'm open to new projects. Let's have a conversation.
+        Tim Hutama Bore Pile siap membantu survey lokasi, konsultasi, dan penawaran terbaik untuk proyek Anda.
       </p>
-      <Button size="lg" href="/contact" class="hero-btn-brand">
-        Start a Project
-        <Icon name="arrow-right" size="sm" />
-      </Button>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <Button size="lg" href={waLink} target="_blank" rel="noopener noreferrer" class="hero-btn-brand">
+          <Icon name="message-circle" size="sm" />
+          WhatsApp: 0813-2804-803
+        </Button>
+        <Button size="lg" variant="outline" href="/contact">
+          Kirim Pesan
+          <Icon name="arrow-right" size="sm" />
+        </Button>
+      </div>
     </LetterGlitchBand>
   </section>
 </PageLayout>
-
-<style>
-  details[open] > summary .faq-icon {
-    transform: rotate(180deg);
-  }
-</style>

@@ -12,52 +12,52 @@ import { Hero } from '@/components/hero';
 const recoveryLinks = [
   {
     icon: 'layers',
-    title: 'Projects',
-    description: 'Selected work and case studies.',
+    title: 'Portofolio',
+    description: 'Dokumentasi proyek bore pile yang telah kami kerjakan.',
     href: '/projects',
   },
   {
-    icon: 'book',
-    title: 'Blog',
-    description: 'Notes on design, code, and the craft.',
-    href: '/blog',
+    icon: 'drill',
+    title: 'Layanan',
+    description: 'Informasi lengkap layanan jasa bore pile kami.',
+    href: '/services',
   },
   {
     icon: 'mail',
-    title: 'Contact',
-    description: 'Start a conversation about your project.',
+    title: 'Kontak',
+    description: 'Konsultasi gratis kebutuhan bore pile Anda.',
     href: '/contact',
   },
 ];
 ---
 
 <PageLayout
-  title="Page not found — Astro Rocket"
-  description="This page has moved, been removed, or never existed in the first place."
+  title="Halaman tidak ditemukan — Hutama Bore Pile"
+  description="Halaman yang Anda cari tidak ditemukan. Kembali ke beranda Hutama Bore Pile."
   noindex
   eagerReveal
 >
   <Hero layout="centered" size="sm">
     <Badge slot="badge" variant="brand" pill>
       <Icon name="compass" size="sm" />
-      404 — page not found
+      404 — halaman tidak ditemukan
     </Badge>
 
     <h1 slot="title">
-      Page not <span class="text-brand-500">found.</span>
+      Halaman tidak <span class="text-brand-500">ditemukan.</span>
     </h1>
 
     <p slot="description">
-      This page has moved, been removed, or never existed in the first place. Let's get you back on track.
+      Halaman yang Anda cari telah dipindahkan, dihapus, atau tidak pernah ada. Mari kembali ke halaman yang tepat.
     </p>
 
     <div slot="actions" class="flex flex-col sm:flex-row items-center justify-center gap-4">
       <Button href="/" size="lg">
         <Icon name="arrow-left" size="sm" />
-        Back to home
+        Kembali ke Beranda
       </Button>
-      <Button href="/blog" variant="outline" size="lg">
-        Browse the blog
+      <Button href="/contact" variant="outline" size="lg">
+        Hubungi Kami
         <Icon name="arrow-right" size="sm" />
       </Button>
     </div>
@@ -68,7 +68,7 @@ const recoveryLinks = [
     <div class="mx-auto max-w-6xl px-6">
       <div class="mb-8 text-center" data-reveal>
         <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground">
-          Try one of these instead
+          Coba halaman berikut
         </h2>
       </div>
 

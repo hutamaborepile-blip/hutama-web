@@ -120,30 +120,23 @@ export interface SiteConfig {
 }
 
 const siteConfig: SiteConfig = {
-  name: 'Astro Rocket',
+  name: 'Hutama Bore Pile',
   description:
-    'Astro Rocket — A production-ready Astro 6 starter with 12 beautiful themes, 57+ components, built-in i18n, dark mode and a fast, modern foundation to build anything on.',
-  url: SITE_URL || 'https://astrorocket.dev',
+    'Hutama Bore Pile — Kontraktor jasa bore pile profesional untuk pondasi rumah, gedung, gudang, pabrik, dan berbagai proyek konstruksi di seluruh Pulau Jawa.',
+  url: SITE_URL || 'https://hutamaborepile.co.id',
   ogImage: '/og-default.svg',
-  author: 'Hans Martens',
-  email: 'hello@hansmartens.dev',
+  author: 'Pak Hambali',
+  email: 'hutamaborepile@gmail.com',
+  phone: '0813-2804-803',
   address: {
-    street: '',
-    city: 'Amsterdam',
-    state: '',
-    zip: '',
-    country: 'the Netherlands',
+    street: 'Warugunung, Kec. Karangpilang',
+    city: 'Surabaya',
+    state: 'Jawa Timur',
+    zip: '60221',
+    country: 'Indonesia',
   },
-  socialLinks: [
-    'https://github.com/hansmartensdev',
-    'https://x.com/hansmartens_dev',
-    'https://www.linkedin.com',
-    'https://bsky.app/profile/hansmartensdev.bsky.social',
-  ],
-  twitter: {
-    site: 'https://x.com/hansmartens_dev',
-    creator: '@hansmartens_dev',
-  },
+  socialLinks: [],
+  twitter: undefined,
   verification: {
     google: GOOGLE_SITE_VERIFICATION,
     bing: BING_SITE_VERIFICATION,
@@ -179,14 +172,14 @@ const siteConfig: SiteConfig = {
   i18n: i18nConfig,
   branding: {
     logo: {
-      alt: 'Astro Rocket',
+      alt: 'Hutama Bore Pile',
       imageUrl: '/favicon.svg',
     },
     favicon: {
       svg: '/favicon.svg',
     },
     colors: {
-      themeColor: '#3b82f6',
+      themeColor: '#f52433',
       backgroundColor: '#ffffff',
     },
   },

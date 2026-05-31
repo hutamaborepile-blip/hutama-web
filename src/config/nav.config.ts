@@ -26,22 +26,25 @@ export interface LegalLink {
 }
 
 export const navItems: NavItem[] = [
-  { label: 'Services', href: '/services', order: 1 },
-  { label: 'Projects', href: '/projects', order: 2 },
+  { label: 'Layanan', href: '/services', order: 1 },
+  { label: 'Portofolio', href: '/projects', order: 2 },
   { label: 'Blog', href: '/blog', order: 3 },
-  { label: 'About', href: '/about', order: 4 },
-  { label: 'Contact', href: '/contact', order: 5 },
+  { label: 'Tentang Kami', href: '/about', order: 4 },
+  { label: 'Kontak', href: '/contact', order: 5 },
 ];
 
 export const footerNavItems: NavItem[] = [
-  { label: 'Services', href: '/services', order: 1 },
-  { label: 'Projects', href: '/projects', order: 2 },
+  { label: 'Layanan', href: '/services', order: 1 },
+  { label: 'Portofolio', href: '/projects', order: 2 },
   { label: 'Blog', href: '/blog', order: 3 },
-  { label: 'About', href: '/about', order: 4 },
-  { label: 'Contact', href: '/contact', order: 5 },
+  { label: 'Tentang Kami', href: '/about', order: 4 },
+  { label: 'Kontak', href: '/contact', order: 5 },
 ];
 
-export const legalLinks: LegalLink[] = [];
+export const legalLinks: LegalLink[] = [
+  { label: 'Kebijakan Privasi', href: '/privacy' },
+  { label: 'Syarat & Ketentuan', href: '/terms' },
+];
 
 /**
  * Get header navigation items sorted by order

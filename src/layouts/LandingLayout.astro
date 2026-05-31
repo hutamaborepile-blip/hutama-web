@@ -54,8 +54,8 @@ const {
     variant="transparent"
     colorScheme="default"
     size="lg"
-    showCta={false}
-    cta={{ label: 'Astro Rocket', href: 'https://github.com/hansmartensdev/Astro-Rocket', icon: 'rocket', trailingIcon: 'download' }}
+    showCta={true}
+    cta={{ label: 'Konsultasi Gratis', href: 'https://wa.me/6281328048030', icon: 'message-circle' }}
     showThemeSelector
     autoHide={false}
     scrollProgressPosition="top"
@@ -64,5 +64,36 @@ const {
 
   <slot />
 
-  <Footer slot="footer" layout="simple" background="secondary" />
+  <Footer
+    slot="footer"
+    layout="columns"
+    columns={3}
+    background="secondary"
+    tagline="Jasa Bore Pile Profesional di Pulau Jawa"
+    copyright="© {year} {siteName}. Semua hak dilindungi."
+    linkGroups={[
+      {
+        title: 'Layanan',
+        links: [
+          { label: 'Jasa Bore Pile', href: '/services' },
+          { label: 'Straus Pile', href: '/services#straus-pile' },
+          { label: 'Mini Crane', href: '/services#mini-crane' },
+          { label: 'Survey & Konsultasi', href: '/contact' },
+        ],
+      },
+      {
+        title: 'Perusahaan',
+        links: [
+          { label: 'Tentang Kami', href: '/about' },
+          { label: 'Portofolio', href: '/projects' },
+          { label: 'Blog', href: '/blog' },
+          { label: 'Kontak', href: '/contact' },
+        ],
+      },
+    ]}
+    legalLinks={[
+      { label: 'Kebijakan Privasi', href: '/privacy' },
+      { label: 'Syarat & Ketentuan', href: '/terms' },
+    ]}
+  />
 </BaseLayout>
