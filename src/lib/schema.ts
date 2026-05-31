@@ -30,18 +30,17 @@ export function createPersonSchema(): WithContext<Person> {
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    name: 'Astro Rocket',
-    jobTitle: 'Web Designer & Developer',
+    name: 'Pak Hambali',
+    jobTitle: 'Founder & Direktur',
     url: siteConfig.url,
     email: siteConfig.email,
-    ...(siteConfig.authorImage ? { image: `${siteConfig.url}${siteConfig.authorImage}` } : {}),
     ...(siteConfig.address?.city
       ? {
           address: {
             '@type': 'PostalAddress',
             addressLocality: siteConfig.address.city,
-            addressRegion: 'Noord-Brabant',
-            addressCountry: 'NL',
+            addressRegion: siteConfig.address.state,
+            addressCountry: 'ID',
           },
         }
       : {}),
@@ -55,25 +54,39 @@ export function createPersonSchema(): WithContext<Person> {
 export function createProfessionalServiceSchema(): WithContext<LocalBusiness> {
   return {
     '@context': 'https://schema.org',
-    '@type': 'ProfessionalService' as 'LocalBusiness',
+    '@type': 'HomeAndConstructionBusiness' as 'LocalBusiness',
     name: siteConfig.name,
     url: siteConfig.url,
     email: siteConfig.email,
     ...(siteConfig.phone ? { telephone: siteConfig.phone } : {}),
-    ...(siteConfig.authorImage ? { image: `${siteConfig.url}${siteConfig.authorImage}` } : {}),
-    ...(siteConfig.address?.city
+    ...(siteConfig.branding.logo.imageUrl ? { image: `${siteConfig.url}${siteConfig.branding.logo.imageUrl}` } : {}),
+    ...(siteConfig.address
       ? {
           address: {
             '@type': 'PostalAddress',
+            streetAddress: siteConfig.address.street,
             addressLocality: siteConfig.address.city,
-            addressRegion: 'Noord-Brabant',
-            addressCountry: 'NL',
+            addressRegion: siteConfig.address.state,
+            postalCode: siteConfig.address.zip,
+            addressCountry: 'ID',
           },
         }
       : {}),
     areaServed: [
-      { '@type': 'Country', name: 'Netherlands' },
-      { '@type': 'Country', name: 'Worldwide' },
+      { '@type': 'State', name: 'Jawa Timur' },
+      { '@type': 'State', name: 'Jawa Tengah' },
+      { '@type': 'State', name: 'Jawa Barat' },
+      { '@type': 'State', name: 'DKI Jakarta' },
+      { '@type': 'State', name: 'DI Yogyakarta' },
+      { '@type': 'State', name: 'Banten' },
+    ],
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+        opens: '08:00',
+        closes: '17:00',
+      },
     ],
     sameAs: siteConfig.socialLinks,
   };
@@ -91,13 +104,29 @@ export function createOrganizationSchema(): WithContext<Organization> {
     '@type': 'Organization',
     name: siteConfig.name,
     url: siteConfig.url,
+    email: siteConfig.email,
+    ...(siteConfig.phone ? { telephone: siteConfig.phone } : {}),
     ...(logoUrl ? { logo: logoUrl } : {}),
+    ...(siteConfig.address
+      ? {
+          address: {
+            '@type': 'PostalAddress',
+            streetAddress: siteConfig.address.street,
+            addressLocality: siteConfig.address.city,
+            addressRegion: siteConfig.address.state,
+            postalCode: siteConfig.address.zip,
+            addressCountry: 'ID',
+          },
+        }
+      : {}),
     sameAs: siteConfig.socialLinks,
     contactPoint: siteConfig.phone
       ? {
           '@type': 'ContactPoint',
           telephone: siteConfig.phone,
           contactType: 'customer service',
+          availableLanguage: 'Indonesian',
+          areaServed: 'ID',
         }
       : undefined,
   };

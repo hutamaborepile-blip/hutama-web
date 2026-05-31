@@ -136,7 +136,6 @@ const siteConfig: SiteConfig = {
     country: 'Indonesia',
   },
   socialLinks: [],
-  twitter: undefined,
   verification: {
     google: GOOGLE_SITE_VERIFICATION,
     bing: BING_SITE_VERIFICATION,

@@ -29,9 +29,9 @@ const astroI18nOptions = i18nEnabled
   : undefined;
 
 export default defineConfig({
-  output: 'static',
+  output: 'server',
   adapter: isNetlify ? netlify() : vercel(),
-  site: process.env.SITE_URL || 'https://example.com',
+  site: process.env.SITE_URL || 'https://hutamaborepile.co.id',
   ...(astroI18nOptions ? { i18n: astroI18nOptions } : {}),
 
   build: {
@@ -41,6 +41,9 @@ export default defineConfig({
   env: {
     schema: {
       SITE_URL: envField.string({ context: 'server', access: 'public', optional: true }),
+      WORDPRESS_URL: envField.string({ context: 'server', access: 'public', optional: true }),
+      WC_CONSUMER_KEY: envField.string({ context: 'server', access: 'secret', optional: true }),
+      WC_CONSUMER_SECRET: envField.string({ context: 'server', access: 'secret', optional: true }),
       PUBLIC_GA_MEASUREMENT_ID: envField.string({ context: 'client', access: 'public', optional: true }),
       PUBLIC_GTM_ID: envField.string({ context: 'client', access: 'public', optional: true }),
       RESEND_API_KEY: envField.string({ context: 'server', access: 'secret', optional: true }),

@@ -35,16 +35,21 @@ const { title, description, image, imageAlt, noindex, nofollow, showScrollProgre
   <Header
     slot="header"
     position="fixed"
-    shape="bar"
-    variant="solid"
+    shape="floating"
+    variant="transparent"
+    colorScheme="default"
     size="lg"
     showActiveState
     showCta={true}
     cta={{ label: 'Konsultasi Gratis', href: 'https://wa.me/6281328048030', icon: 'message-circle' }}
+    showThemeSelector
+    autoHide={false}
+    scrollProgressPosition="top"
+    invertOnReturn={false}
     showScrollProgress={showScrollProgress}
   />
 
-  <main class="min-h-screen pt-16">
+  <main class="min-h-screen">
     <slot />
   </main>
 
@@ -59,9 +64,9 @@ const { title, description, image, imageAlt, noindex, nofollow, showScrollProgre
       {
         title: 'Layanan',
         links: [
-          { label: 'Jasa Bore Pile', href: '/services' },
-          { label: 'Straus Pile', href: '/services#straus-pile' },
-          { label: 'Mini Crane', href: '/services#mini-crane' },
+          { label: 'Jasa Bore Pile', href: '/layanan' },
+          { label: 'Straus Pile', href: '/layanan' },
+          { label: 'Mini Crane', href: '/layanan' },
           { label: 'Survey & Konsultasi', href: '/contact' },
         ],
       },
@@ -70,7 +75,7 @@ const { title, description, image, imageAlt, noindex, nofollow, showScrollProgre
         links: [
           { label: 'Tentang Kami', href: '/about' },
           { label: 'Portofolio', href: '/projects' },
-          { label: 'Blog', href: '/blog' },
+          { label: 'Artikel', href: '/artikel' },
           { label: 'Kontak', href: '/contact' },
         ],
       },

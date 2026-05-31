@@ -2,6 +2,8 @@
 import ProjectLayout from '@/layouts/ProjectLayout.astro';
 import { getCollection, render } from 'astro:content';
 
+export const prerender = true;
+
 export async function getStaticPaths() {
   const visibleProjects = await getCollection('projects', ({ data }) => {
     return import.meta.env.PROD ? data.draft !== true : true;

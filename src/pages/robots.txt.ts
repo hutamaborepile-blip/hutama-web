@@ -1,16 +1,17 @@
 import type { APIRoute } from 'astro';
 
 export const GET: APIRoute = ({ site }) => {
-  const siteUrl = site?.toString() || 'https://example.com';
+  const siteUrl = (site?.toString() || 'https://hutamaborepile.co.id').replace(/\/$/, '');
 
-  const robotsTxt = `
-User-agent: *
+  const robotsTxt = `User-agent: *
 Allow: /
 
-# Block API routes
+# Block API routes and internal pages
 Disallow: /api/
+Disallow: /og/
 
-Sitemap: ${siteUrl}sitemap-index.xml
+# Sitemaps
+Sitemap: ${siteUrl}/sitemap-index.xml
 `.trim();
 
   return new Response(robotsTxt, {
