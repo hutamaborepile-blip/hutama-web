@@ -123,7 +123,7 @@ const siteConfig: SiteConfig = {
   name: 'Hutama Bore Pile',
   description:
     'Hutama Bore Pile — Kontraktor jasa bore pile profesional untuk pondasi rumah, gedung, gudang, pabrik, dan berbagai proyek konstruksi di seluruh Pulau Jawa.',
-  url: SITE_URL || 'https://hutamaborepile.co.id',
+  url: 'https://hutamaborepile.co.id',
   ogImage: '/og-default.svg',
   author: 'Pak Hambali',
   email: 'hutamaborepile@gmail.com',

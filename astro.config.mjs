@@ -32,7 +32,7 @@ const astroI18nOptions = i18nEnabled
 export default defineConfig({
   output: 'server',
   adapter: isNetlify ? netlify() : (isVercel ? vercel() : undefined),
-  site: process.env.SITE_URL || 'https://hutamaborepile.co.id',
+  site: 'https://hutamaborepile.co.id',
   ...(astroI18nOptions ? { i18n: astroI18nOptions } : {}),
 
   build: {
