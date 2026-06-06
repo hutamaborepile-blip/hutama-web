@@ -11,7 +11,7 @@ Disallow: /api/
 Disallow: /og/
 
 # Sitemaps
-Sitemap: ${siteUrl}/sitemap-index.xml
+Sitemap: ${siteUrl}/sitemap-0.xml
 `.trim();
 
   return new Response(robotsTxt, {
