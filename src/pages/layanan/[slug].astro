@@ -19,7 +19,7 @@ const product = await getProduct(slug);
 
 if (!product) return Astro.redirect('/layanan');
 
-const waNumber = '6281328048030';
+const waNumber = '628132804803';
 const waMsg = encodeURIComponent(`Halo, saya ingin konsultasi mengenai layanan: ${product.name}`);
 const waLink = `https://wa.me/${waNumber}?text=${waMsg}`;
 
