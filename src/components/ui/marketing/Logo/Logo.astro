@@ -1,9 +1,8 @@
 ---
 /**
- * Logo Component — first-letter monogram badge
+ * Logo Component
  *
- * Renders a brand-coloured square badge with the first letter of the site
- * name, used in the navbar, footer, and blog post bylines.
+ * Renders the Hutama Bore Pile logo
  */
 import { cn } from '@/lib/cn';
 import siteConfig from '@/config/site.config';
@@ -24,31 +23,26 @@ interface Props {
 const {
   size = 'md',
   class: className,
-  letter: letterProp,
 } = Astro.props;
 
-const sizeClasses: Record<string, { box: string; text: string; radius: string }> = {
-  sm:    { box: 'w-5 h-5',   text: 'text-[14px]', radius: 'rounded-[4px]' },
-  md:    { box: 'w-6 h-6',   text: 'text-[16px]', radius: 'rounded-[5px]' },
-  lg:    { box: 'w-8 h-8',   text: 'text-[22px]', radius: 'rounded-[6px]' },
-  xl:    { box: 'w-12 h-12', text: 'text-[34px]', radius: 'rounded-[8px]' },
-  '2xl': { box: 'w-24 h-24', text: 'text-[68px]', radius: 'rounded-[14px]' },
+const sizeClasses: Record<string, { box: string; radius: string }> = {
+  sm:    { box: 'w-5 h-5',  radius: 'rounded-[4px]' },
+  md:    { box: 'w-6 h-6',  radius: 'rounded-[5px]' },
+  lg:    { box: 'w-8 h-8',  radius: 'rounded-[6px]' },
+  xl:    { box: 'w-12 h-12', radius: 'rounded-[8px]' },
+  '2xl': { box: 'w-24 h-24', radius: 'rounded-[14px]' },
 };
 
-const { box, text, radius } = sizeClasses[size] ?? sizeClasses.md;
-const letter = letterProp ?? siteConfig.name.charAt(0).toUpperCase();
+const { box, radius } = sizeClasses[size] ?? sizeClasses.md;
 ---
 
-<span
+<img
+  src="/assets/img/Logo Hutama Bore Pile.webp"
+  alt={siteConfig.branding.logo.alt}
   class={cn(
-    'inline-flex items-center justify-center shrink-0',
-    'bg-brand-500 text-white',
-    'font-display font-bold leading-none select-none',
-    box, text, radius,
+    'inline-flex items-center justify-center shrink-0 object-contain',
+    box, radius,
     className
   )}
-  aria-label={siteConfig.branding.logo.alt}
-  role="img"
->
-  {letter}
-</span>
+  loading="eager"
+/>

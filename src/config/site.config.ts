@@ -172,10 +172,10 @@ const siteConfig: SiteConfig = {
   branding: {
     logo: {
       alt: 'Hutama Bore Pile',
-      imageUrl: '/favicon.svg',
+      imageUrl: '/assets/img/Logo Hutama Bore Pile.webp',
     },
     favicon: {
-      svg: '/favicon.svg',
+      svg: '/favicon.webp',
     },
     colors: {
       themeColor: '#f52433',

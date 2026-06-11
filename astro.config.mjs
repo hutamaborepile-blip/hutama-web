@@ -33,6 +33,10 @@ export default defineConfig({
   output: 'server',
   adapter: isNetlify ? netlify() : (isVercel ? vercel() : undefined),
   site: 'https://hutamaborepile.co.id',
+  redirects: {
+    '/artikel': '/blog',
+    '/artikel/[slug]': '/blog/[slug]',
+  },
   ...(astroI18nOptions ? { i18n: astroI18nOptions } : {}),
 
   build: {

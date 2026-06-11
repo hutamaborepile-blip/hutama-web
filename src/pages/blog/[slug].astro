@@ -1,8 +1,10 @@
 ---
 /**
  * Single WordPress blog post
- * URL: /artikel/[slug]
+ * URL: /blog/[slug]
  */
+export const prerender = false;
+
 import PageLayout from '@/layouts/PageLayout.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import Badge from '@/components/ui/data-display/Badge/Badge.astro';
@@ -12,16 +14,16 @@ import { getPost, getPosts, getFeaturedImage, getPostCategories, formatWPDate, s
 import siteConfig from '@/config/site.config';
 
 const { slug } = Astro.params;
-if (!slug) return Astro.redirect('/artikel');
+if (!slug) return Astro.redirect('/blog');
 
 const post = await getPost(slug);
-if (!post) return Astro.redirect('/artikel');
+if (!post) return Astro.redirect('/blog');
 
 const img = getFeaturedImage(post);
 const cats = getPostCategories(post);
 const authorName = post._embedded?.author?.[0]?.name || siteConfig.name;
 
-const canonicalUrl = `${siteConfig.url}/artikel/${post.slug}`;
+const canonicalUrl = `${siteConfig.url}/blog/${post.slug}`;
 const seoTitle = post.yoast_head_json?.title || `${stripHtml(post.title.rendered)} | Hutama Bore Pile`;
 const seoDesc = post.yoast_head_json?.description || stripHtml(post.excerpt.rendered).slice(0, 160);
 const ogImage = post.yoast_head_json?.og_image?.[0]?.url || img?.src || `${siteConfig.url}/og-default.svg`;
@@ -63,7 +65,7 @@ const breadcrumbSchema = {
   '@type': 'BreadcrumbList',
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Beranda', item: siteConfig.url },
-    { '@type': 'ListItem', position: 2, name: 'Artikel', item: `${siteConfig.url}/artikel` },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: `${siteConfig.url}/blog` },
     { '@type': 'ListItem', position: 3, name: stripHtml(post.title.rendered), item: canonicalUrl },
   ],
 };
@@ -89,7 +91,7 @@ const breadcrumbSchema = {
       <ol class="flex items-center gap-2 text-sm text-foreground-muted flex-wrap">
         <li><a href="/" class="hover:text-brand-500 transition-colors">Beranda</a></li>
         <li><Icon name="chevron-right" size="sm" class="text-foreground-muted/50" /></li>
-        <li><a href="/artikel" class="hover:text-brand-500 transition-colors">Artikel</a></li>
+        <li><a href="/blog" class="hover:text-brand-500 transition-colors">Blog</a></li>
         <li><Icon name="chevron-right" size="sm" class="text-foreground-muted/50" /></li>
         <li class="text-foreground font-medium truncate max-w-[200px]" set:html={post.title.rendered} />
       </ol>
@@ -200,7 +202,7 @@ const breadcrumbSchema = {
                 {recentPosts.map((rp) => {
                   const rpImg = getFeaturedImage(rp);
                   return (
-                    <a href={`/artikel/${rp.slug}`} class="flex items-start gap-3 group">
+                    <a href={`/blog/${rp.slug}`} class="flex items-start gap-3 group">
                       {rpImg ? (
                         <img src={rpImg.src} alt={rpImg.alt} class="w-14 h-14 rounded-lg object-cover shrink-0" loading="lazy" width="56" height="56" />
                       ) : (
@@ -216,8 +218,8 @@ const breadcrumbSchema = {
                   );
                 })}
               </div>
-              <Button variant="outline" href="/artikel" class="w-full mt-4">
-                Semua Artikel
+              <Button variant="outline" href="/blog" class="w-full mt-4">
+                Semua Blog
                 <Icon name="arrow-right" size="sm" />
               </Button>
             </Card>

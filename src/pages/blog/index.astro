@@ -1,177 +1,158 @@
 ---
+/**
+ * Artikel / Blog from WordPress
+ * URL: /blog
+ */
+export const prerender = false;
+
 import PageLayout from '@/layouts/PageLayout.astro';
-import BlogCard from '@/components/blog/BlogCard.astro';
-import Pagination from '@/components/blog/Pagination.astro';
-import TagList from '@/components/blog/TagList.astro';
-import Badge from '@/components/ui/data-display/Badge/Badge.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
-import CTA from '@/components/ui/marketing/CTA/CTA.astro';
-import LetterGlitchBand from '@/components/patterns/LetterGlitchBand.astro';
+import Badge from '@/components/ui/data-display/Badge/Badge.astro';
+import Card from '@/components/ui/data-display/Card/Card.astro';
+import Button from '@/components/ui/form/Button/Button.astro';
 import { Hero } from '@/components/hero';
+import { getPosts, getFeaturedImage, getPostCategories, formatWPDate, stripHtml } from '@/lib/wordpress';
 import siteConfig from '@/config/site.config';
-import {
-  BLOG_POSTS_PER_PAGE,
-  collectTopTags,
-  getPostUrl,
-  getPublishedPosts,
-} from '@/lib/blog';
 
-/** How many of the most-used tags to surface in the cloud. */
-const TAG_CLOUD_LIMIT = 10;
+const posts = await getPosts({ per_page: 20, orderby: 'date', order: 'desc' });
 
-const posts = await getPublishedPosts('en');
+const canonicalUrl = `${siteConfig.url}/blog`;
 
-// Featured posts always appear on page 1; the "All posts" grid paginates
-// the non-featured set so the first impression stays curated.
-const featuredPosts = posts.filter((post) => post.data.featured);
-const nonFeaturedPosts = posts.filter((post) => !post.data.featured);
-// If everything is featured, mirror it into the main grid so the page isn't empty.
-const regularPostsAll = nonFeaturedPosts.length > 0 ? nonFeaturedPosts : posts;
+const collectionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Blog Jasa Bore Pile | Hutama Bore Pile',
+  description: 'Artikel seputar jasa bore pile, pondasi bangunan, biaya bore pile, jenis pondasi, dan tips konstruksi untuk berbagai proyek di Pulau Jawa.',
+  url: canonicalUrl,
+  publisher: {
+    '@type': 'Organization',
+    name: siteConfig.name,
+    url: siteConfig.url,
+  },
+};
 
-const totalPages = Math.max(1, Math.ceil(regularPostsAll.length / BLOG_POSTS_PER_PAGE));
-const regularPosts = regularPostsAll.slice(0, BLOG_POSTS_PER_PAGE);
-
-const topTags = collectTopTags(posts, TAG_CLOUD_LIMIT);
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Beranda', item: siteConfig.url },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: canonicalUrl },
+  ],
+};
 ---
 
-<PageLayout title="Kategori Jasa Bore Pile Profesional di Pulau Jawa | Hutama Bore Pile" description="Artikel seputar jasa bore pile, pondasi bangunan, biaya bore pile, jenis pondasi, dan tips konstruksi untuk berbagai proyek di Pulau Jawa." showScrollProgress eagerReveal>
+<PageLayout
+  title="Kategori Jasa Bore Pile Profesional di Pulau Jawa | Hutama Bore Pile"
+  description="Artikel seputar jasa bore pile, pondasi bangunan, biaya bore pile, jenis pondasi, dan tips konstruksi untuk berbagai proyek di Pulau Jawa."
+  eagerReveal
+>
+  <Fragment slot="head">
+    <link rel="canonical" href={canonicalUrl} />
+    <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  </Fragment>
+
   <Hero layout="centered" size="sm" class="isolate" showHeroHalo>
     <Badge slot="badge" variant="brand" pill>
       <Icon name="book" size="sm" />
-      Artikel
+      Blog
     </Badge>
-
     <h1 slot="title">Kategori Jasa Bore Pile</h1>
-
-    <p slot="description">Informasi lengkap seputar jasa bore pile, pondasi bangunan, biaya, proses pengerjaan, dan tips konstruksi untuk berbagai proyek di Pulau Jawa.</p>
+    <p slot="description">
+      Informasi lengkap seputar jasa bore pile, pondasi bangunan, biaya, proses pengerjaan, dan tips konstruksi untuk berbagai proyek di Pulau Jawa.
+    </p>
   </Hero>
 
-  <!-- Featured Posts Section -->
-  {
-    featuredPosts.length > 0 && (
-      <section id="featured-section" class="bg-background-secondary py-[var(--space-section-md)] border-t border-border">
-        <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
-          <h2 class="font-display text-foreground text-3xl md:text-4xl font-bold text-center" data-reveal>
-            Artikel Unggulan
-          </h2>
-
-          <div class="grid gap-6 sm:grid-cols-2">
-            {featuredPosts.map((post) => (
-              <BlogCard
-                title={post.data.title}
-                description={post.data.description}
-                href={getPostUrl(post.id)}
-                publishedAt={post.data.publishedAt}
-                tags={post.data.tags}
-                author={post.data.author}
-                image={post.data.image}
-                svgSlug={post.data.svgSlug}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-    )
-  }
-
-  <!-- All Posts Section -->
-  <section class:list={[featuredPosts.length > 0 ? 'bg-background' : 'bg-background-secondary', 'py-[var(--space-section-md)] border-t border-border']}>
+  <!-- Posts -->
+  <section class="py-[var(--space-section-md)] bg-background-secondary border-t border-border">
     <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
-      <div class="flex flex-col items-center gap-4" data-reveal>
-        {
-          featuredPosts.length > 0 && nonFeaturedPosts.length > 0 && (
-            <h2 class="font-display text-foreground text-3xl md:text-4xl font-bold text-center">Semua Artikel</h2>
-          )
-        }
 
-        {topTags.length > 0 && (
-          <TagList tags={topTags} class="justify-center" />
-        )}
-      </div>
-
-      {
-        regularPosts.length > 0 ? (
-          <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {regularPosts.map((post) => (
-              <BlogCard
-                title={post.data.title}
-                description={post.data.description}
-                href={getPostUrl(post.id)}
-                publishedAt={post.data.publishedAt}
-                tags={post.data.tags}
-                author={post.data.author}
-                image={post.data.image}
-                svgSlug={post.data.svgSlug}
-              />
-            ))}
+      {posts.length > 0 ? (
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {posts.map((post, i) => {
+            const img = getFeaturedImage(post);
+            const cats = getPostCategories(post);
+            const excerpt = stripHtml(post.excerpt.rendered).slice(0, 140);
+            return (
+              <a href={`/blog/${post.slug}`} class="group block" data-reveal data-reveal-delay={String(i % 3)}>
+                <Card variant="elevated" hover padding="none" class="flex flex-col h-full">
+                  {img ? (
+                    <div class="aspect-video overflow-hidden rounded-t-xl bg-background-tertiary">
+                      <img
+                        src={img.src}
+                        alt={img.alt}
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        loading={i < 3 ? 'eager' : 'lazy'}
+                        width="400"
+                        height="225"
+                      />
+                    </div>
+                  ) : (
+                    <div class="aspect-video rounded-t-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center">
+                      <Icon name="file-text" class="w-10 h-10 text-brand-500/40" />
+                    </div>
+                  )}
+                  <div class="flex flex-1 flex-col p-5">
+                    {cats.length > 0 && (
+                      <div class="flex flex-wrap gap-1.5 mb-2">
+                        {cats.slice(0, 2).map((cat) => (
+                          <Badge variant="brand" pill class="text-xs">{cat}</Badge>
+                        ))}
+                      </div>
+                    )}
+                    <h2 class="font-display text-base font-bold text-foreground leading-snug mb-2 group-hover:text-brand-500 transition-colors" set:html={post.title.rendered} />
+                    {excerpt && (
+                      <p class="text-sm text-foreground-muted leading-relaxed flex-1">{excerpt}…</p>
+                    )}
+                    <div class="flex items-center justify-between mt-4 pt-3 border-t border-border">
+                      <time class="text-xs text-foreground-muted" datetime={post.date}>
+                        {formatWPDate(post.date)}
+                      </time>
+                      <span class="inline-flex items-center gap-1 text-xs font-medium text-brand-500 group-hover:gap-2 transition-all">
+                        Baca <Icon name="arrow-right" size="sm" />
+                      </span>
+                    </div>
+                  </div>
+                </Card>
+              </a>
+            );
+          })}
+        </div>
+      ) : (
+        <div class="py-16 text-center">
+          <div class="bg-background mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full">
+            <Icon name="file-text" size="lg" class="text-foreground-muted" />
           </div>
-        ) : (
-          <div class="py-16 text-center">
-            <div class="bg-background mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full">
-              <Icon name="file-text" size="lg" class="text-foreground-muted" />
-            </div>
-            <p class="text-foreground-muted text-lg">Belum ada artikel</p>
-          </div>
-        )
-      }
-
-      <Pagination
-        currentPage={1}
-        totalPages={totalPages}
-        href={(page) => (page === 1 ? '/blog' : `/blog/page/${page}`)}
-      />
+          <p class="text-foreground-muted text-lg mb-4">Belum ada artikel tersedia.</p>
+          <Button variant="outline" href="/contact">
+            Hubungi Kami
+            <Icon name="arrow-right" size="sm" />
+          </Button>
+        </div>
+      )}
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <CTA variant="default" size="md" maxWidth="lg" glow={false} data-reveal class:list={['glitch:hidden', featuredPosts.length > 0 && '!bg-background-secondary']}>
-    <h2 slot="heading" class="!text-4xl">Konsultasi Gratis</h2>
-    <p slot="description" class="!text-lg text-balance">Hubungi Hutama Bore Pile untuk konsultasi dan penawaran jasa bore pile terbaik.</p>
-
-    <div class="flex flex-wrap items-center justify-center gap-3">
-      <a
-        href="https://wa.me/6281328048030"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-brand-500 hover:text-brand-500"
-      >
-        <Icon name="message-circle" size="sm" />
-        WhatsApp: 0813-2804-803
-      </a>
-      <a
-        href="mailto:hutamaborepile@gmail.com"
-        class="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-brand-500 hover:text-brand-500"
-      >
-        <Icon name="mail" size="sm" />
-        Email
-      </a>
-    </div>
-  </CTA>
-
-  <!-- Desktop: contained LetterGlitch band with glass card -->
-  <section class:list={['hidden glitch:block relative z-10 py-[var(--space-section-md)]', featuredPosts.length > 0 ? 'bg-background-secondary' : 'bg-background']}>
-    <LetterGlitchBand>
-      <h2 class="font-display text-4xl font-bold text-foreground mb-4 text-balance">Konsultasi Gratis</h2>
-      <p class="text-lg text-foreground-muted mb-8 text-balance">Hubungi Hutama Bore Pile untuk konsultasi dan penawaran jasa bore pile terbaik.</p>
-
-      <div class="flex flex-wrap items-center justify-center gap-3">
-        <a
-          href="https://wa.me/6281328048030"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-brand-400 hover:bg-brand-500/20 hover:text-foreground"
-        >
+  <!-- CTA -->
+  <section class="py-[var(--space-section-md)] bg-background border-t border-border">
+    <div class="mx-auto max-w-2xl px-6 text-center" data-reveal>
+      <Badge variant="brand" pill class="mb-4">Konsultasi Gratis</Badge>
+      <h2 class="font-display text-2xl font-bold text-foreground mb-3">
+        Butuh Jasa Bore Pile?
+      </h2>
+      <p class="text-foreground-muted mb-6">
+        Hubungi Hutama Bore Pile untuk konsultasi dan penawaran terbaik.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <Button size="lg" href="https://wa.me/6281328048030" target="_blank" rel="noopener noreferrer" class="cta-btn-brand">
           <Icon name="message-circle" size="sm" />
           WhatsApp: 0813-2804-803
-        </a>
-        <a
-          href="mailto:hutamaborepile@gmail.com"
-          class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-brand-400 hover:bg-brand-500/20 hover:text-foreground"
-        >
-          <Icon name="mail" size="sm" />
-          Email
-        </a>
+        </Button>
+        <Button size="lg" variant="outline" href="/contact">
+          Kirim Pesan
+          <Icon name="arrow-right" size="sm" />
+        </Button>
       </div>
-    </LetterGlitchBand>
+    </div>
   </section>
 </PageLayout>
