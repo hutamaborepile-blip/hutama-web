@@ -79,20 +79,19 @@ const faqs = defineCollection({
 // Projects collection — one MDX file per project
 const projects = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/projects' }),
-  schema: () =>
+  schema: ({ image }) =>
     z.object({
       title: z.string(),
       description: z.string(),
       url: z.string().url().optional(),
       repo: z.string().url().optional(),
-      /** Public asset path, e.g. /assets/img/project/photo.jpg */
-      image: z.string().optional(),
+      image: image().optional(),
       imageAlt: z.string().optional(),
       /** Optional gallery — when provided, renders a swipeable carousel in the hero in place of the single `image`. */
       gallery: z
         .array(
           z.object({
-            src: z.string(),
+            src: image(),
             alt: z.string(),
           })
         )

@@ -50,7 +50,7 @@ const hasMultiple = slides.length > 1;
           data-carousel-slide
           data-index={i}
         >
-          {typeof slide.src === 'string' ? (
+          {typeof slide.src === 'string' && (slide.src.startsWith('/') || slide.src.startsWith('http')) ? (
             <img
               src={slide.src}
               alt={slide.alt}
